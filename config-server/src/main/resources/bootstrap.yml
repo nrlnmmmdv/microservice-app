@@ -1,0 +1,15 @@
+server:
+  port: 8888
+
+  profiles:
+    active: native
+
+spring:
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/microservice
+
+  profiles:
+    active: native
