@@ -19,7 +19,7 @@ public class AccountService {
     private final AccountRepository accountRepository;
 
     public Account get(String id) {
-        return accountRepository.findById(id).orElseThrow(() -> new IllegalArgumentException());
+        return accountRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Tapilmadi!"));
     }
 
     public Account save(Account account) {

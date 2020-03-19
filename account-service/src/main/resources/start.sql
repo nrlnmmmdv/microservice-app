@@ -12,4 +12,4 @@ create table emp(
     emp_phone varint
 );
 
-select * from emp;
+select *  from emp;

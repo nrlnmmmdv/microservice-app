@@ -5,8 +5,8 @@ import org.springframework.data.cassandra.core.mapping.Column;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 import org.springframework.data.cassandra.core.mapping.Table;
 
-import javax.sql.DataSource;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.UUID;
 
@@ -31,7 +31,7 @@ public class Account implements Serializable {
     private String password;
 
     @Column(value = "created_at")
-    private Date createdAt;
+    private LocalDate createdAt;
 
     @Column(value = "is_active")
     private Boolean active;
