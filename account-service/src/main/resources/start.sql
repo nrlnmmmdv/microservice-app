@@ -12,4 +12,13 @@ create table emp(
     emp_phone varint
 );
 
+create table accounts(
+                    id text PRIMARY KEY ,
+                    uname text,
+                    email text,
+                    pwd text,
+                    created_at date,
+                    is_active boolean
+);
+
 select *  from emp;
