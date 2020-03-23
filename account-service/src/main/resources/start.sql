@@ -21,4 +21,4 @@ create table accounts(
                     is_active boolean
 );
 
-select *  from emp;
+select *  from accounts;
