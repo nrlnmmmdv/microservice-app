@@ -1,8 +1,12 @@
 package com.nurlan.accountservice.api;
 
+import com.nurlan.accountservice.dto.AccountDto;
 import com.nurlan.accountservice.entitiy.Account;
 import com.nurlan.accountservice.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,17 +23,17 @@ public class AccountApi {
     private AccountService accountService;
 
     @GetMapping("/{id}")
-    public ResponseEntity<Account> get(@PathVariable("id") String id) {
+    public ResponseEntity<AccountDto> get(@PathVariable("id") String id) {
         return ResponseEntity.ok(accountService.get(id));
     }
 
     @PostMapping
-    public ResponseEntity<Account> save(@RequestBody Account account) {
+    public ResponseEntity<AccountDto> save(@RequestBody AccountDto account) {
         return ResponseEntity.ok(accountService.save(account));
     }
 
     @PutMapping
-    public ResponseEntity<Account> update(@RequestBody Account account) {
+    public ResponseEntity<AccountDto> update(@RequestBody AccountDto account) {
         return ResponseEntity.ok(accountService.update(account));
     }
 
@@ -39,7 +43,7 @@ public class AccountApi {
     }
 
     @GetMapping
-    public ResponseEntity<List<Account>> getAll() {
-        return ResponseEntity.ok(accountService.findAll());
+    public ResponseEntity<Slice<AccountDto>> getAll(Pageable pageable) {
+        return ResponseEntity.ok(accountService.getAll(pageable));
     }
 }

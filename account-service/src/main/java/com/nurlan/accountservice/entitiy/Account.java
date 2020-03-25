@@ -24,8 +24,17 @@ public class Account implements Serializable {
     @Column(value = "uname")
     private String username;
 
+    @Column(value = "name")
+    private String name;
+
+    @Column(value = "surname")
+    private String surname;
+
     @Column(value = "email")
     private String email;
+
+    @Column(value = "birth_date")
+    private LocalDate birthDate;
 
     @Column(value = "pwd")
     private String password;
@@ -35,5 +44,6 @@ public class Account implements Serializable {
 
     @Column(value = "is_active")
     private Boolean active;
+
 
 }
