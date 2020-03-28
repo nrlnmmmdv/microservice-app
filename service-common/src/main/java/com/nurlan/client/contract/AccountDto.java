@@ -1,4 +1,4 @@
-package com.nurlan.accountservice.dto;
+package com.nurlan.client.contract;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,5 +22,9 @@ public class AccountDto {
     private String email;
 
     private LocalDate birthDate;
+
+    public String getNameSurname(){
+        return this.name + " " + this.surname;
+    }
 
 }

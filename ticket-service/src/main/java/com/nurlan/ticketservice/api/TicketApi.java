@@ -23,7 +23,6 @@ public class TicketApi {
     @PostMapping
     public ResponseEntity<TicketDto> createTicket(@RequestBody TicketDto ticketDto) {
         return ResponseEntity.ok(ticketService.save(ticketDto));
-
     }
 
     @PutMapping
@@ -32,8 +31,7 @@ public class TicketApi {
     }
 
     @GetMapping
-    public ResponseEntity<Page<TicketDto>> getAll(@PathVariable Pageable pageable) {
+    public ResponseEntity<Page<TicketDto>> getAll(Pageable pageable) {
         return ResponseEntity.ok(ticketService.getPagination(pageable));
-
     }
 }

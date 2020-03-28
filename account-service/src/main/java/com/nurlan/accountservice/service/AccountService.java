@@ -1,8 +1,8 @@
 package com.nurlan.accountservice.service;
 
-import com.nurlan.accountservice.dto.AccountDto;
 import com.nurlan.accountservice.entitiy.Account;
 import com.nurlan.accountservice.repository.AccountRepository;
+import com.nurlan.client.contract.AccountDto;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Pageable;
@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
-import java.util.List;
 import java.util.Optional;
 
 

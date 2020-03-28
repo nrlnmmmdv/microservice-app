@@ -15,7 +15,10 @@ create table emp(
 create table accounts(
                     id text PRIMARY KEY ,
                     uname text,
+                    name text,
+                    surname text,
                     email text,
+                    birth_date date,
                     pwd text,
                     created_at date,
                     is_active boolean

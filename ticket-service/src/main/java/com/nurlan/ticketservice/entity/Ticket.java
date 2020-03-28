@@ -4,7 +4,6 @@ import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.time.DayOfWeek;
 import java.time.LocalDate;
 
 @Entity
@@ -20,6 +19,7 @@ public class Ticket extends BaseEntityModel{
             name = "UUID",
             strategy = "org.hibernate.id.UUIDGenerator")
     @Column(name = "id")
+    @Id
     private String id;
 
     @Getter

@@ -47,6 +47,11 @@ public class CassandraConfiguration extends AbstractCassandraConfiguration {
     }
 
     @Override
+    public String[] getEntityBasePackages(){
+        return new String[] {"com.nurlan.accountservice"};
+    }
+
+    @Override
     public CassandraClusterFactoryBean cluster() {
         CassandraClusterFactoryBean cassandraClusterFactoryBean = super.cluster();
         cassandraClusterFactoryBean.setPassword(password);

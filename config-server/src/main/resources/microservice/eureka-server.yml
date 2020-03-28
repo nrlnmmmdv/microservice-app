@@ -1,5 +1,5 @@
 server:
-  port: 8500
+  port: 8761
 
 spring:
   application:
@@ -9,6 +9,7 @@ eureka:
   instance:
     hostname: localhost
   client:
+#    TODO bu ikisi true olduqda error verirdi...Bura qayit!
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
