@@ -1,0 +1,25 @@
+server:
+  port: 8503
+
+spring:
+  application:
+    name: notification-service
+  rabbitmq:
+    username: nurlan
+    password: nurlan
+  cloud:
+    stream:
+      bindings:
+        #output: # queue - ye data yollayan
+         # destination: nurlan
+        input: # queue - nu listen eden
+          destination: msqueue
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    fetchRegistry: true
+    registerWithEureka: true
+

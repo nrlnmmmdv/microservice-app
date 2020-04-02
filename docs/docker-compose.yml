@@ -8,7 +8,7 @@ services:
 
   mysql:
     image: mysql
-    restart: always
+#    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: microservice-app
     ports:
@@ -22,3 +22,12 @@ services:
     environment:
       discovery.type: single-node
       ES_JAVA_OPTS: "-Xms512m -Xmx512m"
+
+  msrabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - '5672:5672'
+      - '15672:15672'
+    environment:
+      - RABBITMQ_DEFAULT_USER=nurlan
+      - RABBITMQ_DEFAULT_PASS=nurlan

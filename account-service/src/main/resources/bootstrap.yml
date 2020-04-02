@@ -5,3 +5,9 @@ spring:
     config:
       profile: native
       uri: http://localhost:8888
+    stream:
+      bindings:
+            #output: # queue - ye data yollayan
+            # destination: nurlan
+        input: # queue - nu listen eden
+          destination: msqueue

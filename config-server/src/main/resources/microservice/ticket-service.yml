@@ -15,6 +15,14 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+  rabbitmq:
+    username: nurlan
+    password: nurlan
+  cloud:
+    stream:
+      bindings:
+        output: # queue - ye data yollayan
+          destination: msqueue
 
 eureka:
   client:

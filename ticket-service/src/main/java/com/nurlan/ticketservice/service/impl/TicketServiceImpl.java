@@ -9,10 +9,9 @@ import com.nurlan.ticketservice.entity.TicketStatus;
 import com.nurlan.ticketservice.entity.es.TicketModel;
 import com.nurlan.ticketservice.repository.TicketRepository;
 import com.nurlan.ticketservice.repository.es.TicketElasticRepository;
+import com.nurlan.ticketservice.service.TicketNotificationService;
 import com.nurlan.ticketservice.service.TicketService;
 import lombok.RequiredArgsConstructor;
-import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
@@ -20,16 +19,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@RequiredArgsConstructor
 public class TicketServiceImpl implements TicketService {
 
-    @Autowired
-    private TicketElasticRepository ticketElasticRepository;
-    @Autowired
-     TicketRepository ticketRepository;
-    @Autowired
-    private ModelMapper modelMapper;
-    @Autowired
-    private AccountServiceClient accountServiceClient;
+    private final TicketElasticRepository ticketElasticRepository;
+    private final TicketRepository ticketRepository;
+    private final TicketNotificationService ticketNotificationService;
+    private final  AccountServiceClient accountServiceClient;
 
     @Override
     @Transactional
@@ -71,6 +67,9 @@ public class TicketServiceImpl implements TicketService {
 
         //return object
         ticketDto.setId(ticket.getId());
+
+        // write notification to queue
+        ticketNotificationService.sendToQueue(ticket);
         return ticketDto;
     }
 
